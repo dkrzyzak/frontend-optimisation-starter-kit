@@ -133,12 +133,12 @@ gulp.task('js-copy', () => {
 });
 
 gulp.task('js-minified', () => {
-  return gulp.src([ 
-    src_assets_folder + 'js/homework/*.js', 
+  return gulp.src([
+    src_assets_folder + 'js/homework/*.js',
     src_assets_folder + 'js/homework/components/*.js',
-    src_assets_folder + 'js/homework/vendor/*.js', 
-    src_assets_folder + 'js/homework/vendor/jquery/dist/*.js', 
-    src_assets_folder + 'js/homework/vendor/requirejs/*.js', 
+    src_assets_folder + 'js/homework/vendor/*.js',
+    src_assets_folder + 'js/homework/vendor/jquery/dist/*.js',
+    src_assets_folder + 'js/homework/vendor/requirejs/*.js',
   ], { since: gulp.lastRun('js-minified'), base: src_assets_folder + 'js/homework' })
     .pipe(uglify())
     .pipe(gulp.dest(dist_assets_folder + 'js/homework'))
@@ -218,19 +218,19 @@ gulp.task('generate-critical-css', (cb) => {
 });
 
 gulp.task(
-  'build', 
+  'build',
   gulp.series(
-    'clear', 
-    'html', /* replace the 'html' with 'html-minified' if you need minification */ 
-    'sass', 
-    'less', 
-    'stylus', 
-    'js', 
+    'clear',
+    'html', /* replace the 'html' with 'html-minified' if you need minification */
+    'sass',
+    'less',
+    'stylus',
+    'js',
     'js-copy', /* replace the 'js-copy' with 'js-minified' if you need minification */
-    'fonts', 
+    'fonts',
     'videos',
-    'extra-files', 
-    'images', 
+    'extra-files',
+    'images',
     /*'purgecss',*/
     /*'generate-critical-css',*/
     /*'generate-service-worker',*/

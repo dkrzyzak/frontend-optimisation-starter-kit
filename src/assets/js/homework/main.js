@@ -4,7 +4,8 @@ requirejs.config({
         "tweenmax"   : "vendor/TweenMax.min",
         "async"      : "components/async",
         "google"     : "components/google",
-        "waypoints"  : "components/waypoints.min"
+        "waypoints"  : "components/waypoints.min",
+        "lazysizes"  : "components/lazysizes.min",
     },
 
     shim: {
