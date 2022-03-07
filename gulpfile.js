@@ -57,7 +57,12 @@ gulp.task('html', () => {
 
 gulp.task('html-minified', () => {
   return gulp.src(src_folder + '*.html')
-    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(htmlmin({
+      collapseWhitespace: true,
+      minifyCSS: true,
+      minifyJS: true,
+      removeComments: true,
+    }))
     .pipe(gulp.dest(dist_folder))
 });
 
@@ -191,7 +196,8 @@ gulp.task('write-service-worker', (cb) => {
     staticFileGlobs: [
       // Add/remove glob patterns to match your directory setup.
       `${dist_folder}assets/fonts/*.woff2`,
-      `${dist_folder}assets/css/**/*.css`
+      `${dist_folder}assets/css/**/*.css`,
+      `${dist_folder}assets/images/**/*`,
     ],
     // Translates a static file path to the relative URL that it's served from.
     // This is '/' rather than path.sep because the paths returned from
@@ -221,7 +227,7 @@ gulp.task(
   'build',
   gulp.series(
     'clear',
-    'html', /* replace the 'html' with 'html-minified' if you need minification */
+    'html-minified', /* replace the 'html' with 'html-minified' if you need minification */
     'sass',
     'less',
     'stylus',
