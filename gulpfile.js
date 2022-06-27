@@ -232,14 +232,14 @@ gulp.task(
     'less',
     'stylus',
     'js',
-    'js-copy', /* replace the 'js-copy' with 'js-minified' if you need minification */
+    'js-minified', /* replace the 'js-copy' with 'js-minified' if you need minification */
     'fonts',
     'videos',
     'extra-files',
     'images',
-    /*'purgecss',*/
-    /*'generate-critical-css',*/
-    /*'generate-service-worker',*/
+    // 'purgecss',
+    // 'generate-critical-css',
+    // 'generate-service-worker',
   )
 );
 

@@ -331,6 +331,14 @@ define(['components/domReady', 'components/flexbox_fallback', 'components/placeh
 		},
 
 		animations: function() {
+      // const { level = 1, charging = false } = await navigator?.getBattery?.() ?? {};
+      var hardwareConcurrency = navigator.hardwareConcurrency || 1;
+
+      // || (level <= 0.2 && !charging)
+      if (hardwareConcurrency < 4) {
+        return;
+      }
+
 			var animationInstances = document.querySelectorAll('.animation');
 
 			if (animationInstances.length === 0) {
@@ -480,9 +488,9 @@ define(['components/domReady', 'components/flexbox_fallback', 'components/placeh
       		global.fallbacks();
       		global.marketo_popup();
       		global.social_media_share();
-			global.paymentForms();
-			global.animations();
-			global.ctaAds();
+          global.paymentForms();
+          global.animations();
+          global.ctaAds();
 
       		if ($(".inner-page__submenu--sticky").length)
       		{
